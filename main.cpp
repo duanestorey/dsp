@@ -30,6 +30,11 @@ int main(int argc, char* argv[]) {
     dsp->generate( DSP::FILTER_HIGHSHELF, 48000, 2000, coeff, 0.7071, 1 );
     coeff.print();  
 
+    dsp->generate( DSP::FILTER_LOWPASS, 48000, 80, coeff );
+    coeff.print();  
+    dsp->generate( DSP::FILTER_HIGHPASS, 48000, 80, coeff );
+    coeff.print(); 
+
     double *merged = coeff.merged();
     printf( "%lf %lf %lf %lf %lf\n", merged[0], merged[1], merged[2], merged[3], merged[4]);
 
